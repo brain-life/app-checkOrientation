@@ -8,9 +8,9 @@ if [ $ENV == "IUHPC" ]; then
 fi
 
 
-export input_nii=`$(jq -r '.input' config.json)`
+export input_nii=`jq -r '.input' config.json`
 
-export orientation=`$(fslorient $input_nii)`
+export orientation=`fslorient $input_nii`
 
 echo $orientation
 
