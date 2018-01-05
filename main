@@ -10,7 +10,9 @@ fi
 
 export input_nii=$(jq -r .input config.json)
 
-export orientation=$(fslorient $input_nii)
+cp $input_nii .
+
+export orientation=$(fslorient t1.nii.gz)
 
 echo $orientation
 
