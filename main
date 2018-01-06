@@ -7,8 +7,9 @@ if [ $ENV == "IUHPC" ]; then
    module load fsl
 fi
 
+dtiinit=`$SERVICE_DIR/jq -r '.dtiinit' config.json`
+export input_nii=$dtiinit/`$SERVICE_DIR/jq -r '.files.alignedDwRaw' $dtiinit/dt6.json`
 
-export input_nii=$(jq -r .input config.json)
 
 export orientation=`fslorient $input_nii`
 
